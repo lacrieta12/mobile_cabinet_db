@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Management</title>
+  </head>
+  <body>
+    <h1>User Management</h1>
+    <table>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+      {% for user in users %}
+      <tr>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <form method="post" action="/admin/reset_password">
+            <input
+              type="hidden"
+              name="admin_password"
+              value="{{ admin_password }}"
+              required
+            />
+            <input
+              type="hidden"
+              name="target_username"
+              value="{{ user.username }}"
+            />
+            <label for="new_password">New Password:</label>
+            <input type="password" name="new_password" required />
+            <button type="submit">Reset Password</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

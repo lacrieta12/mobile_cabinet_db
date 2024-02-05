@@ -1,0 +1,95 @@
+{% include 'header.html' %}
+{% include 'style.html' %}
+</head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+    
+
+      <!-- include sidebar-->
+      {% include 'sidebar.html' %}
+
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          {% include 'topbar.html' %}
+
+          <!-- Begin Page Content -->
+
+          
+
+        <div class="d-flex justify-content-center bg-light"></br>
+          
+          <div class="container">
+          
+            <div class="row justify-content-center">
+            
+                <div class="row justify-content-center">
+                  <div class="col-sm-12">
+                    <div class="card mb-5 mt-5 shadow-lg p-3 mb-5 bg-white rounded">
+                      <div class="card-body ">
+
+                      <!-- FORM-->
+                            <form class="login100-search-form validate-form" action="{{url_for('search_user')}}" method="post" autocomplete="off">
+                              <span class="login100-form-title">
+                                Cari Data Pengguna
+                              </span>
+                               
+                                            <div class="text-center">
+                                            {% for message in get_flashed_messages() %} 
+
+                                             <div class="flash" style="color:orange;">{{ message }}</div>
+                                            </br> 
+
+                                            {% endfor %} 
+                                            </div>
+                                        
+                                      
+
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="text" name="username" id="username" class="input100" 
+                                placeholder="Username" required >
+                                <span class="focus-input100"></span>
+                          <span class="symbol-input100">
+                            <i class="fa fa-book fa-fw" aria-hidden="true"></i>
+                          </span>
+                              </div>
+
+                              <div class="container-login100-form-btn">
+                                <button class="login100-form-btn" type="submit">
+                                  Cari Data Pengguna
+                                </button>
+                              </div>
+
+                            </form>
+                      <!--END FORM-->
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+             
+             
+            </div>
+
+          </div>
+
+        </div>
+
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+
+      
+        {% include 'footer.html' %}
+
+        {% include 'script.html' %}
+
+
+</body>
+</html>

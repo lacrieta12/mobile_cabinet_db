@@ -1,0 +1,234 @@
+{% include 'header.html' %}
+{% include 'style.html' %}
+<!-- script untuk form-->
+
+<!--===============================================================================================-->	
+<script src="{{url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{url_for('static', filename='vendor/bootstrap/js/popper.js')}}"></script>
+<script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{url_for('static', filename='vendor/select2/select2.min.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{url_for('static', filename='vendor/tilt/tilt.jquery.min.js')}}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+<script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+
+
+
+
+
+
+
+<!-- script untuk form-->
+</head>
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+    
+
+      <!-- include sidebar-->
+      {% include 'sidebar.html' %}
+
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          {% include 'topbar.html' %}
+
+          <!-- Begin Page Content -->
+
+          <div class="text-center">
+            {% if msg|length != 0: %}
+                  {% if msg_type == 0: %}
+                  
+                  <div class="alert alert-danger ">
+                      <a class="close font-weight-light" data-dismiss="alert" href="#">×</a>{{msg}}
+                  </div>
+                  {% else %}
+                  <div class="alert alert-success ">
+                    <a class="close font-weight-light" data-dismiss="alert" href="#">×</a>{{msg}}
+                </div>
+                  {% endif %}
+               
+            {% endif %}
+          </div>
+
+
+
+        <div class="d-flex justify-content-center bg-light"></br>
+          
+          <div class="container">
+          
+            <div class="row justify-content-center">
+            
+                <div class="row justify-content-center">
+                  <div class="col-sm-12">
+                    <div class="card custom-card mb-5 mt-5 shadow-lg p-3 mb-5 bg-white rounded">
+                      <div class="card-body">
+
+                      <!-- FORM-->
+                            <form class="login100-search-form validate-form" action="{{ url_for('update')}}" method="post">
+                              <span class="login100-form-title">
+                                
+                                Perbaharui Data Pengguna 
+                              </span>
+                              <div class="text-center">
+                                {% for message in get_flashed_messages() %} 
+
+                                 <div class="flash" style="color:orange;">{{ message }}</div>
+                                </br> 
+
+                                {% endfor %} 
+                                </div>
+                              </br>
+                              <div class="wrap-input100 validate-input">
+                                <input type="text" name="username" id="username" value="{{ account['username']}}" class="input100 custom-input" 
+                                placeholder="Username" required readonly>
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                </span>
+                              </div>
+                    
+                              <div class="wrap-input100 validate-input">
+                                
+                                <input type="text" name="organisation" id="organisation" value="{{ account['organisation']}}" class="input100 custom-input" 
+                                placeholder="Organisasi" required>
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-university" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="text" name="address" id="address" value="{{ account['address']}}" class="input100 custom-input" 
+                                placeholder="Alamat" required>
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-address-card" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="text" name="city" id="city" value="{{ account['city']}}" class="input100 custom-input" 
+                                placeholder="Kota" required>
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-building-o" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="text" name="state" id="state" value="{{ account['state']}}" class="input100 custom-input" 
+                                placeholder="Provinsi" required>
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-building" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="text" name="country" id="country" value="{{ account['country']}}" class="input100 custom-input" 
+                                placeholder="Negara" required>
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-building" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="text" name="postalcode" id="postalcode" value="{{ account['postalcode']}}" class="input100 custom-input" 
+                                placeholder="Kodepos (hanya angka)" onkeypress="return hanyaAngka(event)" required>
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-columns" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="email" name="email" id="email" value="{{ account['email']}}" class="input100 custom-input" 
+                                placeholder="E-mail" required>
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="password" name="password" id="password" value="{{ account['password']}}" class="input100 custom-input" 
+                                placeholder="Password" required>
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-lock" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="password" name="pin" id="pin" value="{{ account['PIN']}}" class="input100 custom-input" 
+                                placeholder="PIN (hanya angka max 6 karakter)" maxlength="6" required>
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-key" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                                                           <!-- Tambahkan input tersembunyi untuk 'id' -->
+                              <input type="hidden" name="id" id="id" value="{{ account['id'] }}">
+                              <input type="hidden" name="update_type" id="update_type" value="{{ account['update_type'] }}">
+                              
+                              <div class="container-login100-form-btn">
+                                <button class="login100-form-btn" type="submit">
+                                  Update
+                                </button>
+                              </div>
+                    
+                             
+                    
+                              
+                            </form>
+                      <!--END FORM-->
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+             
+             
+            </div>
+
+          </div>
+
+        </div>
+
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+
+      
+        {% include 'footer.html' %}
+
+        {% include 'script.html' %}
+        <script>
+          function restrictToDigits(elementId) {
+              var inputElement = document.getElementById(elementId);
+              inputElement.addEventListener('input', function() {
+                  this.value = this.value.replace(/[^0-9]/g, '');
+              });
+          }
+        
+          // Memanggil fungsi untuk elemen Kodepos dan PIN
+          restrictToDigits('postalcode');
+          restrictToDigits('pin');
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+{% include 'header.html' %}
+{% include 'style.html' %}
+</head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+    
+
+      <!-- include sidebar-->
+      {% include 'sidebar.html' %}
+
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          {% include 'topbar.html' %}
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="d-flex justify-content-center">
+
+             
+
+          </div>        
+
+          <div class="container-fluid bg-light py-3">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                        <div class="card card-body-main shadow ">
+                            <div class="content" align="center">
+                                <div class="text-center">
+                                    <h2> <b>Detail Dokumen</b></h2>
+                                </div> </br>
+                                <hr>
+                                <br class="contentbar">
+                                
+                                <div class="card">
+                                    <div  class="table-responsive"></br>
+                                        <table class="table">
+                                          <tr>
+                                            <th>Nama Dokumen</th>
+                                            <th>: </th>
+                                            <td>
+                                                <b>
+                                                    {{ list_dokumen['nama_dokumen'] }}
+                                                </b>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Device ke</th>
+                                            <th>: </th>
+                                            <td>{{ list_dokumen['device_ke'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Rak ke</th>
+                                            <th>: </th>
+                                            <td>{{ list_dokumen['rak_ke'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Baris ke</th>
+                                            <th>: </th>
+                                            <td>{{ list_dokumen['baris_ke'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Kolom ke</th>
+                                            <th>: </th>
+                                            <td>{{ list_dokumen['kolom_ke'] }}</td>
+                                        </tr>
+                                        </table>
+                                    </div>
+                                  </br>
+                                 
+                    <!-- FORM-->
+                          
+                            
+            
+                                </div>
+                                <div class="msg" style="color: red;" >{{ msg}}</div>
+                               
+                                <div class = "container-login100-form-btn" >    
+                                  <form action="{{url_for('document_option')}}" method="get">
+                                    <button type="submit" class="login100-form-btn mb-2" name="tombol" value="tombol1">Take   </button>
+                                                     
+                                    <button type="submit" class="login100-form-btn" name="tombol" value="tombol2">Restore</button>
+                                  </form>
+                                  </div>
+                            
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div></br>
+            
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        {% include 'footer.html' %}
+
+        {% include 'script.html' %}
+
+
+</body>
+</html>

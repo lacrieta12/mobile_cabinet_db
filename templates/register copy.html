@@ -1,0 +1,222 @@
+{% include 'header.html' %}
+{% include 'style.html' %}
+<!-- script untuk form-->
+
+<!--===============================================================================================-->	
+<script src="{{url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{url_for('static', filename='vendor/bootstrap/js/popper.js')}}"></script>
+<script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{url_for('static', filename='vendor/select2/select2.min.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{url_for('static', filename='vendor/tilt/tilt.jquery.min.js')}}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+<script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+
+
+
+
+
+
+
+<!-- script untuk form-->
+</head>
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+    
+
+      <!-- include sidebar-->
+      {% include 'sidebar.html' %}
+
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          {% include 'topbar.html' %}
+
+          <!-- Begin Page Content -->
+
+
+            <div class="text-center">
+      
+              </div>
+            </br>
+          </div>
+
+
+
+        <div class="d-flex justify-content-center bg-light m-2"></br>
+          
+          <div class="container">
+          
+            <div class="row justify-content-center">
+            
+                <div class="row justify-content-center">
+                  <div class="col-sm-12">
+                    <div class="card custom-card mb-5 mt-5 shadow-lg p-3 mb-5 bg-white rounded">
+                      <div class="card-body">
+
+                      <!-- FORM-->
+                            <form class="login100-search-form validate-form" action="{{ url_for('register')}}" method="post">
+                              <span class="login100-form-title">
+                                Input Data Pengguna
+                              </span>
+
+                              <div class="text-center">
+                                {% for message in get_flashed_messages() %} 
+
+                                 <div class="flash" style="color:orange;">{{ message }}</div>
+                                </br> 
+
+                                {% endfor %} 
+                                </div>
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="text" name="user" id="user" class="input100 custom-input" 
+                                placeholder="Username" required>
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="email" name="email" id="email" class="input100 custom-input" 
+                                placeholder="E-mail" required value="{{ request.form['email'] if 'email' in request.form else '' }}">
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="password" name="pass" id="pass" class="input100 custom-input" 
+                                placeholder="Password" required>
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-lock" aria-hidden="true"></i>
+                                </span>
+                              </div>
+                    
+                              <div class="wrap-input100 validate-input">
+                                <input type="text" name="organisation" id="organisation" class="input100 custom-input" 
+                                placeholder="Organisasi" required value="{{ request.form['organisation'] if 'organisation' in request.form else '' }}">
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-university" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="text" name="address" id="address" class="input100 custom-input" 
+                                placeholder="Alamat" required value="{{ request.form['address'] if 'address' in request.form else '' }}">
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-address-card" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="text" name="city" id="city" class="input100 custom-input" 
+                                placeholder="Kota" required value="{{ request.form['city'] if 'city' in request.form else '' }}">
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-building-o" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="text" name="state" id="state" class="input100 custom-input" 
+                                placeholder="Provinsi" required value="{{ request.form['state'] if 'state' in request.form else '' }}">
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-building" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="text" name="country" id="country" class="input100 custom-input" 
+                                placeholder="Negara" required value="{{ request.form['country'] if 'country' in request.form else '' }}">
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-building" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="text" name="postalcode" id="postalcode" class="input100 custom-input" 
+                                placeholder="Kodepos (hanya angka)" onkeypress="return hanyaAngka(event)" required value="{{ request.form['postalcode'] if 'postalcode' in request.form else '' }}">
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-columns" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+
+                              <div class="wrap-input100 validate-input">
+                                <input type="password" name="pin" id="pin" class="input100 custom-input" 
+                                placeholder="PIN (hanya angka max 6 karakter)" maxlength="6" required value="{{ request.form['pin'] if 'pin' in request.form else '' }}">
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                  <i class="fa fa-key" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                              <div class="container-login100-form-btn">
+                                <button class="login100-form-btn" type="submit">
+                                  Simpan
+                                </button>
+                              </div>
+                    
+                             
+                    
+                              
+                            </form>
+                      <!--END FORM-->
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+             
+             
+            </div>
+
+          </div>
+
+        </div>
+
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+
+      
+        {% include 'footer.html' %}
+
+        {% include 'script.html' %}
+        <script>
+          function restrictToDigits(elementId) {
+              var inputElement = document.getElementById(elementId);
+              inputElement.addEventListener('input', function() {
+                  this.value = this.value.replace(/[^0-9]/g, '');
+              });
+          }
+        
+          // Memanggil fungsi untuk elemen Kodepos dan PIN
+          restrictToDigits('postalcode');
+          restrictToDigits('pin');
+        </script>
+
+
+</body>
+</html>

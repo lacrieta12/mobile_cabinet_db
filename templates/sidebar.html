@@ -1,0 +1,102 @@
+ <!-- Sidebar -->
+ <ul
+ class="navbar-nav bg-gradient-primary-in sidebar sidebar-dark accordion toggled"
+ id="accordionSidebar"
+>
+ <!-- Sidebar - Brand -->
+ <a
+   class="sidebar-brand d-flex align-items-center justify-content-center"
+   href="{{ url_for('index') }}"
+ >
+   <div class="sidebar-brand-icon rotate-n-15">
+     <i class="fa fa-folder-o"></i>
+   </div>
+   <div class="sidebar-brand-text mx-3">Mobile Cabinet </div>
+ </a>
+
+ <!-- Divider -->
+ <hr class="sidebar-divider my-0" />
+
+ <!-- Nav Item - Dashboard -->
+
+ <li class="nav-item active">
+  <a class="nav-link" href="{{ url_for('dashboard') }}">
+    <i class="fas fa-fw fa-home"></i>
+    <span>Dashboard</span></a
+  >
+ </li>
+ 
+ <!-- Divider -->
+ <hr class="sidebar-divider" />
+
+ <!-- Heading -->
+ <div class="sidebar-heading">Menu</div>
+
+
+  <!-- Nav Item - Cabinet Collapse Menu -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCabinet"
+        aria-expanded="true" aria-controls="collapseCabinet">
+        <i class="fa fa-building"></i>
+        <span>Cabinet</span>
+    </a>
+    <div id="collapseCabinet" class="collapse" aria-labelledby="headingCabinet"
+        data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header"></h6>
+            <a class="collapse-item" href="{{url_for('store')}}">Add Document</a>
+            <a class="collapse-item" href="{{url_for('search')}}">Search Document</a>
+            {% if session['is_super_admin'] == 1 %}
+            <a class="collapse-item" href="{{url_for('search_history')}}">Document History</a>
+            <a class="collapse-item" href="{{url_for('list_item')}}">Document List</a>
+          {% endif %}
+        </div>
+    </div>
+</li>
+
+
+  <!-- Nav Item - Account Collapse Menu -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAccount"
+        aria-expanded="true" aria-controls="collapseAccount">
+        <i class="fa fa-address-card"></i>
+        <span>Account</span>
+    </a>
+    <div id="collapseAccount" class="collapse" aria-labelledby="headingAccount"
+        data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header"></h6>
+            <a class="collapse-item" href="{{url_for('update', update_type='edit-personal')}}">Update Account</a>
+            
+            <a class="collapse-item" href="{{url_for('account_history')}}">Account History</a>
+            <a class="collapse-item" href="{{url_for('display')}}">Detail Account</a>
+
+            {% if session['is_super_admin'] == 1 %}
+            <a class="collapse-item" href="{{url_for('register')}}">Add Account</a>
+            <a class="collapse-item" href="{{url_for('list_acount')}}">List Data User</a>
+        {% endif %}
+        </div>
+    </div>
+</li>
+
+
+ <!-- Divider -->
+ <hr class="sidebar-divider d-none d-md-block" />
+
+ <!-- Nav Item - logout -->
+ <li class="nav-item">
+  <a class="nav-link" href="{{url_for('logout')}}">
+    <i class="fas fa-fw fa-sign-out-alt"></i>
+    <span>Logout</span></a
+  >
+</li>
+
+ <!-- Sidebar Toggler (Sidebar) -->
+ <div class="text-center d-none d-md-inline">
+   <button class="rounded-circle border-0" id="sidebarToggle"></button>
+ </div>
+
+ <!-- Sidebar Message -->
+
+</ul>
+<!-- End of Sidebar -->

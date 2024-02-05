@@ -1,0 +1,61 @@
+{% include 'header.html' %}
+{% include 'style.html' %}
+</head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+    
+
+      <!-- include sidebar-->
+      {% include 'sidebar.html' %}
+
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          {% include 'topbar.html' %}
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="d-flex justify-content-center">
+          </div>        
+
+    
+
+        <div class="container-fluid bg-light border-left-info shadow py-3">
+          <div class="row justify-content-center">
+              <div class="col-md-6 mx-auto">
+                  <div class="card card-body-main border-left-info shadow custom-card">
+                      <!-- Konten card tetap sama -->
+                      <h3 class="text-center mb-3 mb-lg-4">1Selamat Datang, Anda Bisa mencari dokumen disini</h3>
+                        {% if _index == 1: %}
+                        <div class="alert alert-danger">
+                            <a class="close font-weight-light" data-dismiss="alert" href="#">×</a>{{msg_search}}
+                        </div>
+                        {% endif %}
+                        <form class="user" action="{{ url_for('search') }}" method="post">
+                            <div class="form-group">
+                                <input class="form-control input-lg" placeholder="Masukan nama dokumen yang anda cari" name="nama_dokumen" id="nama_dokumen" type="text" required>
+                            </div>
+                            <input class="btn btn-lg btn-primary btn-block" value="Cari" type="submit">
+                        </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+        
+        </div>
+      </div > 
+   
+      
+
+      {% include 'footer.html' %}
+
+      {% include 'script.html' %}
+
+
+</body>
+</html>

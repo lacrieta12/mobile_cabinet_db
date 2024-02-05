@@ -1,0 +1,101 @@
+{% include 'header.html' %}
+{% include 'style.html' %}
+</head>
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+    
+
+      <!-- include sidebar-->
+      {% include 'sidebar.html' %}
+
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          {% include 'topbar.html' %}
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="d-flex justify-content-center">
+          </div>        
+
+           <!-- Begin Page Content -->
+           <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <h1 class="h3 mb-2 text-gray-800"> History Store Data</h1>
+           
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">History Store Data</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                      <!-- 
+                        <<table id='empTable' class='display dataTable' width='100%'>
+                        End of Content Wrapper 
+                      
+                      -->
+                      <table class="table table-bordered table-hover" id="dataTable_storeHistory" width="100%" cellspacing="0" table-hover>
+                          
+                            <thead>
+                                <tr>
+                                    <th>Date & time</th>
+                                    <th>User</th>
+                                    <th>Document Store</th>
+                                </tr>
+                            </thead>
+                            
+                           
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+
+        </div>
+      </div > 
+   
+      {% include 'footer.html' %}
+
+      {% include 'script.html' %}
+      <script>
+        $(document).ready(function() {
+         
+          
+            var varDataTable = $('#dataTable_storeHistory').DataTable({
+                        'processing': true,
+                        'serverSide': true,
+                        
+                        
+                        'serverMethod': 'post',
+                        'ajax': {
+                            'url':'/ajaxfile_storeHistory'
+                        },
+                        'lengthMenu': [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                        searching: true,
+                        sort: false,
+                        "serverSide": true,
+                        'columns': [
+                            { data: 'store_time' },
+                            { data: 'username' },
+                            { data: 'store_keyword' }
+                        ]
+                    });
+         
+        });
+         
+        </script>
+
+</body>
+</html>
+
+
+
