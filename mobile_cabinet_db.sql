@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2023 at 04:17 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Feb 05, 2024 at 08:51 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,16 +40,19 @@ CREATE TABLE `accounts` (
   `postalcode` varchar(100) NOT NULL,
   `PIN` int(5) NOT NULL,
   `is_super_admin` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `accounts`
 --
 
 INSERT INTO `accounts` (`id`, `username`, `password`, `email`, `organisation`, `address`, `city`, `state`, `country`, `postalcode`, `PIN`, `is_super_admin`) VALUES
-(1, 'admin', '$2b$12$LnXUxjGiBw.Pa3ALko1zie.i3RQYeT6ve/MRVPnTGDrw62SMuzscm', 'admin@gmail.conm', 'admin org', 'jl admin no 23', 'Bandung', 'Jawa Barat', 'Indonesia', '232341', 123456, 1),
+(1, 'admin', '$2b$12$9SXSizGuPDTFXzahIqooZeDFvgWsbCIYXzNZNyco4j4qfOCs8It16', 'admin@gmail.conm', 'admin org', 'jl admin no 23', 'Bandung', 'Jawa Barat', 'Indonesia', '232341', 123456, 1),
 (8, 'user', '$2b$12$bGATGZ5Z4I4U0qRYXhR3F.OIbetEmNploo9FV3N2kMNoQ.6mzWi7e', 'user@gmail.con7', 'userorg1', 'jl user no. 1232', 'Cimahi3', 'Jawa Barat4', 'Indonesia5', '232346', 313123, 0),
-(10, 'abcde', '$2b$12$.WA6b2.UFPCmh6jzOBX.UOcdDcPkupf6IKrapiKMjCSHlIKK2/UV2', 'abcd@gmail.com', 'Polman', 'Jl Dago', 'Bandung', 'Jawa Barat', 'Negara', '123321', 123456, 0);
+(10, 'abcde', '$2b$12$.WA6b2.UFPCmh6jzOBX.UOcdDcPkupf6IKrapiKMjCSHlIKK2/UV2', 'abcd@gmail.com', 'Polman', 'Jl Dago', 'Bandung', 'Jawa Barat', 'Negara', '123321', 123456, 0),
+(11, 'user2', '$2b$12$H4vUDLs5PTgnl0Qw2ARZmOwRXZnP/05OsiI6veXC3OJqpPAti7.ku', 'user2@gmail.com', 'perusahaan', 'bandung', 'bandung', 'jawa barat', 'Indonesia', '40622', 123456, 0),
+(12, 'Pengguna1', '$2b$12$kzjm9AqudfSk/d3epR01COrGOjA2ZP/6eGUkNrdtgOUNhZtMamb0W', 'pengguna1@email.com', 'Organisasi', 'Rumah', 'Jakarta', 'DKI Jakarta', 'Indonesia', '11002', 123456, 0),
+(13, 'pengguna2', '$2b$12$qCtJnnNYJW3pc/3Em6XrHeOJASbbFiKNVGgAiAMd6ztceISQTdll.', 'pengguna2@email.com', 'Organisasi', 'Rumah', 'Jakarta', 'DKI Jakarta', 'Indonesia', '11002', 123456, 0);
 
 -- --------------------------------------------------------
 
@@ -65,7 +68,7 @@ CREATE TABLE `data_trans` (
   `status_dev2` int(1) NOT NULL DEFAULT 0,
   `status_dev3` int(1) NOT NULL DEFAULT 0,
   `waktu_trans` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `data_trans`
@@ -298,7 +301,24 @@ INSERT INTO `data_trans` (`id_transaksi`, `username`, `id_dokumen`, `status_dev1
 (358, '8', '81b5e1eb7', 0, 0, 0, '2023-11-09 09:54:33'),
 (359, '8', '81b5e1eb7', 0, 0, 0, '2023-11-09 09:54:33'),
 (360, '8', '81b5e1eb7', 0, 0, 0, '2023-11-09 09:54:33'),
-(361, '8', '81b5e1eb7', 1, 1, 1, '2023-11-09 09:54:33');
+(361, '8', '81b5e1eb7', 1, 1, 1, '2023-11-09 09:54:33'),
+(362, '1', '6f4d06499', 0, 0, 0, '2023-12-06 03:16:00'),
+(363, '1', '6f4d06499', 0, 0, 0, '2023-12-06 03:17:14'),
+(364, '1', '6f4d06499', 0, 0, 0, '2023-12-06 03:17:15'),
+(365, '1', '6f4d06499', 0, 0, 0, '2023-12-06 03:17:15'),
+(366, '1', '6f4d06499', 0, 0, 0, '2023-12-06 03:17:15'),
+(367, '1', '6f4d06499', 0, 0, 0, '2023-12-06 03:17:16'),
+(368, '1', '6f4d06499', 0, 0, 0, '2023-12-06 03:17:16'),
+(369, '1', '6f4d06499', 0, 0, 0, '2023-12-06 03:20:06'),
+(370, '1', 'f57ca4377', 0, 0, 0, '2023-12-06 03:23:59'),
+(371, '1', '862510da9', 1, 1, 1, '2023-12-06 03:26:20'),
+(372, '1', '6f4d06499', 1, 1, 1, '2023-12-06 03:38:55'),
+(373, '1', '6f4d06499', 1, 1, 1, '2023-12-06 03:55:52'),
+(374, '1', '7de226b89', 1, 1, 1, '2023-12-06 04:06:51'),
+(375, '1', '98bc8ce19', 1, 1, 1, '2023-12-06 04:20:03'),
+(376, '1', '9ca8bc7d9', 1, 1, 1, '2023-12-06 05:02:23'),
+(377, '1', '6f4d06499', 1, 1, 1, '2023-12-12 13:39:17'),
+(378, '1', '6f4d06499', 1, 1, 1, '2023-12-12 14:30:45');
 
 -- --------------------------------------------------------
 
@@ -311,7 +331,7 @@ CREATE TABLE `door_locks` (
   `device_ke` int(1) NOT NULL,
   `rak_ke` int(1) NOT NULL,
   `status_pintu` int(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `door_locks`
@@ -338,7 +358,7 @@ CREATE TABLE `list_dokumen` (
   `kolom_ke` int(11) NOT NULL,
   `status_option` int(1) NOT NULL DEFAULT 0,
   `status_document` int(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `list_dokumen`
@@ -346,6 +366,8 @@ CREATE TABLE `list_dokumen` (
 
 INSERT INTO `list_dokumen` (`id_dokumen`, `nama_dokumen`, `device_ke`, `rak_ke`, `baris_ke`, `kolom_ke`, `status_option`, `status_document`) VALUES
 ('028330897', 'Dokumen 20', 2, 1, 2, 5, 0, 0),
+('0d7f54a29', 'Document tes', 78, 1, 1, 1, 1, 0),
+('1aa1eda39', 'Dokumen lemari 2', 2, 1, 1, 1, 1, 0),
 ('1be28f367', 'tes 2', 1, 1, 1, 1, 0, 0),
 ('23d542867', 'Dokumen 21', 2, 2, 1, 1, 0, 0),
 ('41f31d347', 'Dokumen 22', 2, 2, 1, 2, 1, 0),
@@ -355,21 +377,27 @@ INSERT INTO `list_dokumen` (`id_dokumen`, `nama_dokumen`, `device_ke`, `rak_ke`,
 ('5f5075237', 'Dokumen 26', 2, 2, 2, 1, 1, 0),
 ('646965bf7', 'Dokumen 27', 2, 2, 2, 2, 1, 0),
 ('6b7a53dc7', 'Dokumen 28', 2, 2, 2, 3, 0, 0),
+('6f4d06499', 'Document 1', 1, 1, 1, 3, 0, 0),
 ('70a560c47', 'Dokumen 29', 2, 2, 2, 4, 0, 0),
 ('741b870d7', 'Dokumen 30', 2, 2, 2, 5, 0, 0),
 ('7ccc35e87', 'Dokumen 31', 3, 1, 1, 1, 0, 0),
+('7de226b89', 'Document 2', 2, 1, 1, 3, 1, 0),
 ('80854ad47', 'Dokumen 32', 3, 1, 1, 2, 1, 0),
 ('81b5e1eb7', 'Dokumen 1', 1, 1, 1, 1, 1, 0),
 ('83c839987', 'Dokumen 33', 3, 1, 1, 3, 0, 0),
+('862510da9', '1', 1, 12, 1, 1, 0, 0),
 ('874b98657', 'Dokumen 34', 3, 1, 1, 4, 1, 0),
+('88b244589', 'Dokumen tambahan', 1, 1, 2, 2, 1, 0),
 ('8a4e077b7', 'Dokumen 2', 1, 1, 1, 2, 0, 0),
 ('8b854ab57', 'Dokumen 35', 3, 1, 1, 5, 0, 0),
 ('900355097', 'Dokumen 36', 3, 1, 2, 1, 0, 0),
 ('94dc10887', 'Dokumen 3', 1, 1, 1, 3, 0, 0),
 ('94e4487f7', 'Dokumen 37', 3, 1, 2, 2, 0, 0),
 ('9889f4b67', 'Dokumen 4', 1, 1, 1, 4, 0, 0),
+('98bc8ce19', 'Document 3', 2, 2, 1, 3, 1, 0),
 ('993897697', 'Dokumen 38', 3, 1, 2, 3, 0, 0),
 ('9c00387d7', 'Dokumen 5', 1, 1, 1, 5, 0, 0),
+('9ca8bc7d9', 'Document 4', 3, 1, 1, 3, 1, 0),
 ('9d6990097', 'Dokumen 39', 3, 1, 2, 4, 0, 0),
 ('9ead680e7', 'dokumen aku', 1, 1, 1, 1, 1, 0),
 ('a0bddb987', 'Dokumen 40', 3, 1, 2, 5, 0, 0),
@@ -400,7 +428,7 @@ CREATE TABLE `register_history` (
   `id_register` int(11) NOT NULL,
   `user_register` varchar(255) NOT NULL,
   `register_time` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `register_history`
@@ -421,7 +449,7 @@ CREATE TABLE `search_history` (
   `search_keyword` varchar(255) NOT NULL,
   `search_time` datetime NOT NULL DEFAULT current_timestamp(),
   `information` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `search_history`
@@ -559,7 +587,42 @@ INSERT INTO `search_history` (`id_search`, `username`, `search_keyword`, `search
 (405, 'admin', 'dokumen 1', '2023-11-09 09:49:42', 'Search'),
 (406, 'admin', 'Dokumen 1', '2023-11-09 09:49:45', 'Restore'),
 (407, 'user', 'dokumen 1', '2023-11-09 09:54:14', 'Search'),
-(408, 'user', 'Dokumen 1', '2023-11-09 09:54:16', 'Take');
+(408, 'user', 'Dokumen 1', '2023-11-09 09:54:16', 'Take'),
+(409, 'admin', 'Document 1', '2023-12-06 03:11:11', 'Add Document'),
+(410, 'admin', 'Document 2', '2023-12-06 03:11:36', 'Add Document'),
+(411, 'admin', 'Document', '2023-12-06 03:12:21', 'Add Document'),
+(412, 'admin', 'Document 4', '2023-12-06 03:12:27', 'Add Document'),
+(413, 'admin', 'Document 1', '2023-12-06 03:13:54', 'Search'),
+(414, 'admin', 'Document 1', '2023-12-06 03:15:47', 'Search'),
+(415, 'admin', 'Document 1', '2023-12-06 03:15:53', 'Take'),
+(416, 'admin', 'tes', '2023-12-06 03:23:55', 'Search'),
+(417, 'admin', 'tes', '2023-12-06 03:23:57', 'Take'),
+(418, 'admin', '1', '2023-12-06 03:26:08', 'Add Document'),
+(419, 'admin', '1', '2023-12-06 03:26:16', 'Search'),
+(420, 'admin', '1', '2023-12-06 03:26:18', 'Restore'),
+(421, 'admin', 'Document 1', '2023-12-06 03:31:33', 'Search'),
+(422, 'admin', 'tes', '2023-12-06 03:36:20', 'Search'),
+(423, 'admin', 'document 1', '2023-12-06 03:38:48', 'Search'),
+(424, 'admin', 'Document 1', '2023-12-06 03:38:51', 'Take'),
+(425, 'admin', 'Document 1', '2023-12-06 03:55:40', 'Search'),
+(426, 'admin', 'Document 1', '2023-12-06 03:55:43', 'Take'),
+(427, 'admin', 'Document 2', '2023-12-06 04:06:46', 'Search'),
+(428, 'admin', 'Document 2', '2023-12-06 04:06:48', 'Take'),
+(429, 'admin', 'Document 3', '2023-12-06 04:19:56', 'Search'),
+(430, 'admin', 'Document 3', '2023-12-06 04:19:58', 'Take'),
+(431, 'admin', 'Document 4', '2023-12-06 05:02:16', 'Search'),
+(432, 'admin', 'Document 4', '2023-12-06 05:02:18', 'Take'),
+(433, 'admin', 'Document 3', '2023-12-06 05:14:28', 'Search'),
+(434, 'admin', 'Document tes', '2023-12-06 15:32:55', 'Add Document'),
+(435, 'admin', 'Dokumen lemari 2', '2023-12-06 15:40:26', 'Add Document'),
+(436, 'admin', 'Dokumen Lemari 2', '2023-12-06 15:41:20', 'Search'),
+(437, 'admin', 'Document 1', '2023-12-12 13:36:25', 'Search'),
+(438, 'admin', 'Document 1', '2023-12-12 13:38:20', 'Restore'),
+(439, 'admin', 'Document 1', '2023-12-12 14:07:20', 'Search'),
+(440, 'admin', 'Document 1', '2023-12-12 14:07:38', 'Take'),
+(441, 'admin', 'Document 1', '2023-12-12 14:30:01', 'Search'),
+(442, 'admin', 'Document 1', '2023-12-12 14:30:26', 'Restore'),
+(443, 'admin', 'Dokumen tambahan', '2023-12-12 16:05:02', 'Add Document');
 
 -- --------------------------------------------------------
 
@@ -572,7 +635,7 @@ CREATE TABLE `store_history` (
   `username` varchar(255) NOT NULL,
   `store_keyword` varchar(255) NOT NULL,
   `store_time` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `store_history`
@@ -596,7 +659,7 @@ CREATE TABLE `update_history` (
   `username` varchar(255) NOT NULL,
   `update_time` datetime NOT NULL DEFAULT current_timestamp(),
   `information` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `update_history`
@@ -619,7 +682,41 @@ INSERT INTO `update_history` (`id_update`, `username`, `update_time`, `informati
 (110, 'admin', '2023-11-08 16:55:18', 'Login'),
 (111, 'admin', '2023-11-09 09:44:16', 'Login'),
 (112, 'admin', '2023-11-09 09:52:08', 'Logout'),
-(113, 'user', '2023-11-09 09:54:05', 'Login');
+(113, 'user', '2023-11-09 09:54:05', 'Login'),
+(114, 'admin', '2023-12-06 03:10:42', 'Login'),
+(115, 'admin', '2023-12-06 03:10:45', 'Logout'),
+(116, 'admin', '2023-12-06 03:10:48', 'Login'),
+(117, 'admin', '2023-12-06 03:12:30', 'Logout'),
+(118, 'admin', '2023-12-06 03:13:36', 'Login'),
+(119, 'admin', '2023-12-06 03:15:10', 'Logout'),
+(120, 'admin', '2023-12-06 03:15:32', 'Login'),
+(121, 'admin', '2023-12-06 03:23:25', 'Logout'),
+(122, 'admin', '2023-12-06 03:23:29', 'Login'),
+(123, 'admin', '2023-12-06 03:28:17', 'Login'),
+(124, 'admin', '2023-12-06 03:38:32', 'Logout'),
+(125, 'admin', '2023-12-06 03:38:37', 'Login'),
+(126, 'admin', '2023-12-06 03:50:54', 'Logout'),
+(127, 'admin', '2023-12-06 03:52:48', 'Login'),
+(128, 'admin', '2023-12-06 03:54:48', 'Register Account'),
+(129, 'admin', '2023-12-06 03:55:07', 'Logout'),
+(130, 'admin', '2023-12-06 03:55:27', 'Login'),
+(131, 'admin', '2023-12-06 05:13:07', 'Logout'),
+(132, 'admin', '2023-12-06 05:14:06', 'Login'),
+(133, 'admin', '2023-12-06 15:39:18', 'Logout'),
+(134, 'admin', '2023-12-06 15:39:44', 'Login'),
+(135, 'admin', '2023-12-06 15:44:01', 'Register Account'),
+(136, 'admin', '2023-12-06 15:44:31', 'Update Account'),
+(137, 'admin', '2023-12-06 15:44:38', 'Logout'),
+(138, 'pengguna1', '2023-12-06 15:44:47', 'Login'),
+(139, 'Pengguna1', '2023-12-06 15:45:14', 'Logout'),
+(140, 'admin', '2023-12-12 13:35:02', 'Login'),
+(141, 'admin', '2023-12-12 14:29:11', 'Logout'),
+(142, 'admin', '2023-12-12 14:29:31', 'Login'),
+(143, 'admin', '2023-12-12 15:04:29', 'Update Account'),
+(144, 'admin', '2023-12-12 15:04:44', 'Update Account'),
+(145, 'admin', '2023-12-12 15:31:31', 'Login'),
+(146, 'admin', '2023-12-12 16:21:17', 'Update Account'),
+(147, 'admin', '2023-12-12 16:44:36', 'Register Account');
 
 --
 -- Indexes for dumped tables
@@ -681,13 +778,13 @@ ALTER TABLE `update_history`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `data_trans`
 --
 ALTER TABLE `data_trans`
-  MODIFY `id_transaksi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=362;
+  MODIFY `id_transaksi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=379;
 
 --
 -- AUTO_INCREMENT for table `door_locks`
@@ -705,7 +802,7 @@ ALTER TABLE `register_history`
 -- AUTO_INCREMENT for table `search_history`
 --
 ALTER TABLE `search_history`
-  MODIFY `id_search` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=409;
+  MODIFY `id_search` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=444;
 
 --
 -- AUTO_INCREMENT for table `store_history`
@@ -717,7 +814,7 @@ ALTER TABLE `store_history`
 -- AUTO_INCREMENT for table `update_history`
 --
 ALTER TABLE `update_history`
-  MODIFY `id_update` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id_update` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
